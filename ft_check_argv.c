@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 19:25:36 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/01/20 21:22:33 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/01/21 07:25:37 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,21 @@ static long	ft_atoi(const char *nptr);
 
 int	ft_argv_is_number_only(char **argv)
 {
-	int	i_argc;
-	int	i_argv;
+	int		i_argc;
+	int		i_argv;
+	char	c;
 
 	i_argc = 1;
 	while (argv[i_argc])
 	{
 		i_argv = 0;
-		while (argv[i_argc][i_argv])
+		c = argv[i_argc][i_argv];
+		while (c)
 		{
-			if (argv[i_argc][i_argv] < '0' || argv[i_argc][i_argv] > '9')
+			if ((c < '0' || c > '9') && (c != '+' && c != '-'))
 				return (0);
 			i_argv++;
+			c = argv[i_argc][i_argv];
 		}
 		i_argc++;
 	}
@@ -41,7 +44,7 @@ int	ft_check_int_size(char *argv, int *value)
 	long	tmp;
 
 	tmp = ft_atoi(argv);
-	printf("tmp = [%lu]\n", tmp);
+	//printf("tmp = [%lu]\n", tmp);
 	if (tmp > INT_MAX || tmp < INT_MIN)
 		return (0);
 	*value = tmp;
