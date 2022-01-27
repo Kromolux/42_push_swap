@@ -6,7 +6,7 @@
 #    By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 17:45:41 by rkaufman          #+#    #+#              #
-#    Updated: 2022/01/20 21:14:54 by rkaufman         ###   ########.fr        #
+#    Updated: 2022/01/23 13:20:10 by rkaufman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,14 @@ HEADERFILES :=	push_swap.h
 SRCFILES 	:=	ft_push_swap.c \
 				ft_error.c \
 				ft_check_argv.c \
+				ft_memory.c \
 				ft_list_combined.c \
 				ft_list.c \
 				ft_check_stack.c \
 				ft_operation_swap.c \
 				ft_operation_push.c \
 				ft_operation_rotate.c \
+				ft_operation_reverse_rotate.c \
 				ft_sort.c
 
 SRCBONUS	:=	

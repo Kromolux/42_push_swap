@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 19:36:49 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/01/22 17:02:57 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/01/27 16:24:12 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_list	*ft_create_new_list_element(int value)
 	new_element->previous = NULL;
 	new_element->value = value;
 	new_element->area = (char) -1;
+	new_element->index = -1;
 	new_element->next = NULL;
 	return (new_element);
 }

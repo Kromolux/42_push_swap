@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 20:29:04 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/01/22 21:12:42 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/01/23 13:25:14 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,4 @@ int	ft_create_stack_and_check_int_size(int argc, char **argv,
 		i++;
 	}
 	return (1);
-}
-
-int	ft_delete_list_and_return_error(t_list *head)
-{
-	ft_delete_list(&head);
-	return (ft_error());
 }

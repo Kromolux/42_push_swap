@@ -6,11 +6,31 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 18:20:53 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/01/22 22:09:46 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/01/23 12:58:14 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	ft_push(t_stack_x *stack_from, t_stack_x *stack_to);
+
+void	ft_pb(t_stacks *stacks)
+{
+	if (stacks->a->head)
+	{
+		ft_push(stacks->a, stacks->b);
+		write(1, "pb\n", 3);
+	}
+}
+
+void	ft_pa(t_stacks *stacks)
+{
+	if (stacks->b->head)
+	{
+		ft_push(stacks->b, stacks->a);
+		write(1, "pa\n", 3);
+	}
+}
 
 static void	ft_push(t_stack_x *stack_from, t_stack_x *stack_to)
 {
@@ -32,16 +52,4 @@ static void	ft_push(t_stack_x *stack_from, t_stack_x *stack_to)
 	(pushed_object)->next = old_head_to;
 	stack_from->head = new_head_from;
 	stack_to->head = pushed_object;
-}
-
-void	ft_push_pb(t_stacks *stacks)
-{
-	ft_push(stacks->a, stacks->b);
-	write(1, "pb\n", 3);
-}
-
-void	ft_push_pa(t_stacks *stacks)
-{
-	ft_push(stacks->b, stacks->a);
-	write(1, "pa\n", 3);
 }
