@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 19:25:36 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/01/21 07:25:37 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/01/29 21:07:27 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	ft_check_int_size(char *argv, int *value)
 	long	tmp;
 
 	tmp = ft_atoi(argv);
-	//printf("tmp = [%lu]\n", tmp);
 	if (tmp > INT_MAX || tmp < INT_MIN)
 		return (0);
 	*value = tmp;

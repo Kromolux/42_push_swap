@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 18:20:53 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/01/23 12:58:14 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/01/29 21:11:57 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	ft_pb(t_stacks *stacks)
 {
 	if (stacks->a->head)
 	{
-		ft_push(stacks->a, stacks->b);
 		write(1, "pb\n", 3);
+		ft_push(stacks->a, stacks->b);
 	}
 }
 
@@ -27,8 +27,8 @@ void	ft_pa(t_stacks *stacks)
 {
 	if (stacks->b->head)
 	{
-		ft_push(stacks->b, stacks->a);
 		write(1, "pa\n", 3);
+		ft_push(stacks->b, stacks->a);
 	}
 }
 
@@ -37,7 +37,7 @@ static void	ft_push(t_stack_x *stack_from, t_stack_x *stack_to)
 	t_list	*old_head_to;
 	t_list	*new_head_from;
 	t_list	*pushed_object;
-	
+
 	pushed_object = stack_from->head;
 	old_head_to = stack_to->head;
 	new_head_from = pushed_object->next;
