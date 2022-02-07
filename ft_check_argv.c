@@ -6,91 +6,51 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 19:25:36 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/01/29 21:07:27 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/02/04 08:57:24 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	check_whitespace(const char *str);
-static int	check_sign(const char *str, int *i_str);
-static long	ft_atoi(const char *nptr);
+static int	ft_sign_check(char *argv);
 
 int	ft_argv_is_number_only(char **argv)
 {
 	int		i_argc;
-	int		i_argv;
-	char	c;
 
 	i_argc = 1;
 	while (argv[i_argc])
 	{
-		i_argv = 0;
-		c = argv[i_argc][i_argv];
-		while (c)
-		{
-			if ((c < '0' || c > '9') && (c != '+' && c != '-'))
-				return (0);
-			i_argv++;
-			c = argv[i_argc][i_argv];
-		}
+		if (!ft_sign_check(argv[i_argc]))
+			return (0);
 		i_argc++;
 	}
 	return (1);
 }
 
-int	ft_check_int_size(char *argv, int *value)
+static int	ft_sign_check(char *argv)
 {
-	long	tmp;
-
-	tmp = ft_atoi(argv);
-	if (tmp > INT_MAX || tmp < INT_MIN)
-		return (0);
-	*value = tmp;
-	return (1);
-}
-
-static long	ft_atoi(const char *nptr)
-{
-	long	output;
-	int		sign;
 	int		i;
-
-	output = 0;
-	i = check_whitespace(nptr);
-	sign = check_sign(nptr, &i);
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		output *= 10;
-		output += nptr[i] - '0';
-		i++;
-	}
-	if (i > 11)
-		output = LONG_MAX;
-	return (output * sign);
-}
-
-static int	check_whitespace(const char *str)
-{
-	int	i;
+	int		i_arg;
 
 	i = 0;
-	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
+	i_arg = 0;
+	while (argv[i])
+	{
+		if (argv[i] == ' ')
+		{
+			while (argv[i] == ' ')
+				i++;
+			i_arg = 0;
+		}
+		if (argv[i] < '0' || argv[i] > '9')
+		{
+			if (i_arg > 0 || (argv[i] != '+' && argv[i] != '-')
+				|| argv[i + 1] < '0' || argv[i + 1] > '9')
+				return (0);
+		}
+		i_arg++;
 		i++;
-	return (i);
-}
-
-static int	check_sign(const char *str, int *i_str)
-{
-	int	sign;
-	int	i;
-
-	i = *i_str;
-	sign = 1;
-	if (str[i] == '-')
-		sign = -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	*i_str = i;
-	return (sign);
+	}
+	return (1);
 }

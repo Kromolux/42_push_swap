@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 20:51:30 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/01/29 21:12:12 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/02/02 16:46:57 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,9 @@ static void	ft_rotate(t_stack_x *stack);
 
 void	ft_rr(t_stacks *stacks)
 {
-	if (stacks->a->head != stacks->a->foot
-		&& stacks->b->head != stacks->b->foot)
-	{
-		write(1, "rr\n", 3);
-		ft_rotate(stacks->a);
-		ft_rotate(stacks->b);
-	}
+	write(1, "rr\n", 3);
+	ft_rotate(stacks->a);
+	ft_rotate(stacks->b);
 }
 
 void	ft_ra(t_stacks *stacks)
@@ -49,6 +45,8 @@ static void	ft_rotate(t_stack_x *stack)
 	t_list	*old_foot;
 	t_list	*rotated_object;
 
+	if (!stack->head)
+		return ;
 	rotated_object = stack->head;
 	old_foot = stack->foot;
 	new_head = rotated_object->next;

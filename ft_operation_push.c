@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 18:20:53 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/01/29 21:11:57 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/02/04 09:12:20 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static void	ft_push(t_stack_x *stack_from, t_stack_x *stack_to)
 	t_list	*new_head_from;
 	t_list	*pushed_object;
 
+	if (!stack_from->head)
+		return ;
 	pushed_object = stack_from->head;
 	old_head_to = stack_to->head;
 	new_head_from = pushed_object->next;

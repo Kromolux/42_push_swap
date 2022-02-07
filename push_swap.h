@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:52:02 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/01/30 19:08:29 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/02/02 16:18:19 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include <stdio.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 16384
+# endif
 
 typedef struct s_list
 {
@@ -48,11 +50,20 @@ typedef struct s_sort_stack
 	void				(*reverse)(t_stacks *stacks);
 }				t_sort_stack;
 
+//ft_read_input.c
+char		*ft_read_input(void);
+
+//ft_array_string.c
+char		**ft_split(char const *s, char c);
+size_t		ft_words_in_str(char const *s, char c);
+size_t		ft_copy(char *dst, char *src, size_t size);
+
 //ft_error.c
 int			ft_error(void);
 
 //ft_check_argv.c
 int			ft_argv_is_number_only(char **argv);
+int			ft_number_is_unique(int number, t_stack_x *stack);
 int			ft_check_int_size(char *argv, int *value);
 
 //ft_memory.c
@@ -60,6 +71,7 @@ t_stacks	*ft_init_stacks(void);
 void		ft_free_stacks(t_stacks *stacks);
 void		ft_free_stack(t_stack_x *stack);
 int			ft_free_stacks_and_return_error(t_stacks *stacks);
+void		ft_free_array(char **array);
 
 //ft_list.c
 t_list		*ft_create_new_list_element(int value);

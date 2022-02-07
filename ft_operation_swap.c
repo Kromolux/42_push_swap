@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 18:00:01 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/01/29 21:33:15 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/02/02 16:46:48 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,9 @@ static void	ft_swap(t_stack_x *stack);
 
 void	ft_ss(t_stacks *stacks)
 {
-	if (stacks->a->head != stacks->a->foot
-		&& stacks->b->head != stacks->b->foot)
-	{
-		write(1, "ss\n", 3);
-		ft_swap(stacks->a);
-		ft_swap(stacks->b);
-	}
+	write(1, "ss\n", 3);
+	ft_swap(stacks->a);
+	ft_swap(stacks->b);
 }
 
 void	ft_sa(t_stacks *stacks)
@@ -50,6 +46,8 @@ static void	ft_swap(t_stack_x *stack)
 	t_list	*new_first;
 	t_list	*new_second;
 
+	if (!stack->head)
+		return ;
 	old_first = stack->head;
 	old_second = stack->head->next;
 	new_first = old_second;

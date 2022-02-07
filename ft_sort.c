@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 20:39:06 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/01/30 19:24:52 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/01/31 09:09:16 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_sort_algorythm(t_stacks *stacks, int argc)
 {
 	int	divider;
 
-	if (argc <= 10)
+	if (argc < 10)
 		divider = 4;
 	else if (argc <= 50)
 		divider = 6;
