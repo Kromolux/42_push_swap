@@ -6,18 +6,20 @@
 #    By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 17:45:41 by rkaufman          #+#    #+#              #
-#    Updated: 2022/02/04 08:19:05 by rkaufman         ###   ########.fr        #
+#    Updated: 2022/02/08 17:28:13 by rkaufman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		:=	push_swap
+NAME_MANDA	:=	push_swap
 NAME_BONUS	:=	checker
+NAME_LIB	:=	libft_push_swap.a
 
-CC 			:=	gcc
-HEADERFILES :=	push_swap.h
+LIB_PATH	:=	/Users/rkaufman/Projects/21_push_swap/00_files/21_push_swap_v0/
 
-SRCFILES 	:=	ft_push_swap.c \
-				ft_error.c \
+CC			:=	gcc
+HEADERFILE	:=	push_swap.h
+
+SRC_LIB		:=	ft_error.c \
 				ft_check_argv.c \
 				ft_memory.c \
 				ft_list_combined.c \
@@ -29,48 +31,46 @@ SRCFILES 	:=	ft_push_swap.c \
 				ft_operation_push.c \
 				ft_operation_rotate.c \
 				ft_operation_reverse_rotate.c \
-				ft_sort.c \
+				ft_sort0.c \
+				ft_sort1.c \
 				ft_array_string.c \
-				ft_check_number.c
+				ft_check_number.c \
+				ft_read_input.c
 
-SRCBONUS	:=	ft_checker.c \
-				ft_error.c \
-				ft_check_argv.c \
-				ft_read_input.c \
-				ft_memory.c \
-				ft_list_combined.c \
-				ft_list.c \
-				ft_check_stack0.c \
-				ft_operation_swap.c \
-				ft_operation_push.c \
-				ft_operation_rotate.c \
-				ft_operation_reverse_rotate.c \
-				ft_array_string.c \
-				ft_check_number.c
+SRC_MANDA	:=	ft_push_swap.c
 
-OBJFILES 	:=	$(SRCFILES:%.c=%.o)
-OBJBONUS	:=	$(SRCBONUS:%.c=%.o)
+SRC_BONUS	:=	ft_checker.c
 
-CFLAGS 		:=	-Wall -Wextra -Werror
+OBJ_LIB		:=	$(SRC_LIB:%.c=%.o)
 
-all: $(NAME)
+CFLAGS		:=	-Wall -Wextra -Werror
 
-$(NAME):
-	$(CC) $(CFLAGS) $(SRCFILES) -o $(NAME)
+all: $(NAME_MANDA)
 
-bonus:
-	$(CC) $(CFLAGS) $(SRCBONUS) -o $(NAME_BONUS)
+$(NAME_MANDA): $(NAME_LIB)
+	$(CC) $(CFLAGS) $(SRC_MANDA) -o $(NAME_MANDA) -L$(LIB_PATH) -lft_push_swap
+
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS): $(NAME_LIB)
+	$(CC) $(CFLAGS) $(SRC_BONUS) -o $(NAME_BONUS) -L$(LIB_PATH) -lft_push_swap
+
+$(NAME_LIB): $(OBJ_LIB)
+	$(AR) rcs $(NAME_LIB) $(OBJ_LIB)
+
+%.o: %.c
+	$(CC) -c $(CFLAGS) -o $@ $<
 
 clean:
-	rm -f $(OBJFILES) $(OBJBONUS)
+	rm -f $(OBJ_LIB)
 
 fclean: clean
-	rm -f $(NAME) $(NAME_BONUS)
+	rm -f $(NAME_MANDA) $(NAME_BONUS) $(NAME_LIB)
 
 re: fclean all
 
 norminette:
-	norminette -R CheckForbiddenSourceHeader $(SRCFILES) $(SRCBONUS) $(HEADERFILES)
+	norminette -R CheckForbiddenSourceHeader $(SRC_MANDA) $(SRC_BONUS) $(SRC_LIB) $(HEADERFILE)
 
 git:
 	git add *

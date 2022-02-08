@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 09:02:38 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/02/02 16:36:25 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:15:28 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,14 @@ int	main(int argc, char **argv)
 	if (!ft_create_stack_and_check_int_size(argc, argv, stacks->a))
 		return (ft_free_stacks_and_return_error(stacks));
 	input = ft_read_input();
-	ft_checker(stacks, input);
-	if (ft_stack_is_sorted(stacks->a) && ft_numbers_in_stack(stacks->b) == 0)
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
+	if (ft_checker(stacks, input) == 1)
+	{
+		if (ft_stack_is_sorted(stacks->a)
+			&& ft_numbers_in_stack(stacks->b) == 0)
+			write(1, "OK\n", 3);
+		else
+			write(1, "KO\n", 3);
+	}
 	ft_free_stacks(stacks);
 	return (0);
 }
@@ -42,6 +45,7 @@ int	main(int argc, char **argv)
 static int	ft_checker(t_stacks *stacks, char *input)
 {
 	char	**args;
+	int		output;
 	size_t	i;
 
 	if (input)
@@ -50,15 +54,19 @@ static int	ft_checker(t_stacks *stacks, char *input)
 		args = NULL;
 	free(input);
 	i = 0;
+	output = 1;
 	if (args)
 	{
 		close(STDOUT_FILENO);
-		while (args[i] && ft_check_operations(args[i], stacks) != -1)
+		while (args[i] && output != -1)
+		{
+			output = ft_check_operations(args[i], stacks);
 			i++;
+		}
 		freopen("/dev/tty", "w", stdout);
 		ft_free_array(args);
 	}
-	return (0);
+	return (output);
 }
 
 static int	ft_strcmp(const char *s1, const char *s2)

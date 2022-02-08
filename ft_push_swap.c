@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 19:20:40 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/02/02 07:50:08 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:36:29 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	main(int argc, char **argv)
 			ft_ra(stacks);
 		else if (numbers == 3)
 			ft_sort_3_a(stacks);
+		else if (numbers == 5)
+			ft_sort_5_a(stacks);
 		else
 			ft_sort_algorythm(stacks, numbers);
 	}

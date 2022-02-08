@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 08:16:22 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/02/04 08:18:07 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:09:53 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static long	ft_atoi(const char *nptr)
 		output += nptr[i] - '0';
 		i++;
 	}
-	if (i > 10)
+	if (i > 11)
 		output = LONG_MAX;
 	return (output * sign);
 }

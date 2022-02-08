@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 20:32:58 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/01/30 19:12:08 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:16:45 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_stack_is_sorted(t_stack_x *stack)
 {
 	t_list	*head;
 
-	if (!stack->head || !stack->head->next)
+	if (!stack->head)
 		return (0);
 	head = stack->head;
 	while (head->next)

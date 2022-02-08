@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:52:02 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/02/02 16:18:19 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/02/08 18:38:04 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,15 @@ void		ft_delete_list(t_list **head);
 int			ft_create_stack_and_check_int_size(int argc, char **argv,
 				t_stack_x *stack);
 
-//ft_sort.c
+//ft_sort0.c
 void		ft_sort_3_a(t_stacks *stacks);
 int			ft_sort_3(t_stacks *stacks, t_sort_stack *sort_stack);
 int			ft_sort_algorythm(t_stacks *stacks, int argc);
 void		ft_move_middle_area_to_b(t_stacks *stacks, int divider);
 void		ft_move_everything_back_to_stack_a_before(t_stacks *stacks);
+
+//ft_sort1.c
+int			ft_sort_5_a(t_stacks *stacks);
 
 //ft_prepare_stack.c
 int			ft_index_stack(t_stacks *stacks);

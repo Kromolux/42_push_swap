@@ -6,11 +6,13 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 17:25:40 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/01/30 17:32:38 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/02/08 18:37:20 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	ft_is_index_in_stack(t_stack_x *stack, int index);
 
 int	ft_rotate_is_shortest_index(t_stack_x *stack, int number)
 {
@@ -19,6 +21,8 @@ int	ft_rotate_is_shortest_index(t_stack_x *stack, int number)
 	int		rotations;
 	int		reverse_rotations;
 
+	if (!ft_is_index_in_stack(stack, number))
+		return (-1);
 	head = stack->head;
 	foot = stack->foot;
 	rotations = 0;
@@ -55,4 +59,18 @@ int	ft_get_higest_index_in_stack(t_stack_x *stack)
 		list = list->next;
 	}
 	return (higest);
+}
+
+static int	ft_is_index_in_stack(t_stack_x *stack, int index)
+{
+	t_list	*head;
+
+	head = stack->head;
+	while (head)
+	{
+		if (head->index == index)
+			return (1);
+		head = head->next;
+	}
+	return (0);
 }

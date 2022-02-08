@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 20:51:30 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/02/02 16:46:57 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/02/07 19:48:20 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	ft_rotate(t_stack_x *stack)
 	t_list	*old_foot;
 	t_list	*rotated_object;
 
-	if (!stack->head)
+	if (!stack->head || stack->head == stack->foot)
 		return ;
 	rotated_object = stack->head;
 	old_foot = stack->foot;
