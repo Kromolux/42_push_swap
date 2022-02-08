@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 20:29:04 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/02/01 08:27:59 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/02/08 19:41:17 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	ft_first_argv_handling(char **argv, t_stack_x *stack)
 				return (0);
 			ii++;
 		}
-		free(args);
+		ft_free_array(args);
 	}
 	else if (!ft_create_first_element(argv[1], stack))
 		return (0);

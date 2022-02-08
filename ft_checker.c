@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 09:02:38 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/02/08 17:15:28 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/02/08 19:50:04 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ int	main(int argc, char **argv)
 	t_stacks	*stacks;
 	char		*input;
 
-	stacks = ft_init_stacks();
+
 	if (argc == 1)
 		return (0);
 	if (!ft_argv_is_number_only(argv))
 		return (ft_error());
+	stacks = ft_init_stacks();
 	if (!ft_create_stack_and_check_int_size(argc, argv, stacks->a))
 		return (ft_free_stacks_and_return_error(stacks));
 	input = ft_read_input();

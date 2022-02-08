@@ -6,7 +6,7 @@
 /*   By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 13:20:28 by rkaufman          #+#    #+#             */
-/*   Updated: 2022/01/31 19:30:50 by rkaufman         ###   ########.fr       */
+/*   Updated: 2022/02/08 19:41:19 by rkaufman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,8 @@ void	ft_free_stack(t_stack_x *stack)
 		object = stack->head;
 		stack->head = stack->head->next;
 		free(object);
-		object->previous = NULL;
-		object->next = NULL;
 	}
 	free(stack);
-	stack->head = NULL;
-	stack->foot = NULL;
 	stack = NULL;
 }
 
@@ -66,7 +62,6 @@ void	ft_free_array(char **array)
 	while (array[i])
 	{
 		free(array[i]);
-		array[i] = NULL;
 		i++;
 	}
 	free(array);
