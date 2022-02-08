@@ -6,7 +6,7 @@
 #    By: rkaufman <rkaufman@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 17:45:41 by rkaufman          #+#    #+#              #
-#    Updated: 2022/02/08 17:28:13 by rkaufman         ###   ########.fr        #
+#    Updated: 2022/02/08 18:49:14 by rkaufman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME_MANDA	:=	push_swap
 NAME_BONUS	:=	checker
 NAME_LIB	:=	libft_push_swap.a
 
-LIB_PATH	:=	/Users/rkaufman/Projects/21_push_swap/00_files/21_push_swap_v0/
+LIB_PATH	:=	./
 
 CC			:=	gcc
 HEADERFILE	:=	push_swap.h
